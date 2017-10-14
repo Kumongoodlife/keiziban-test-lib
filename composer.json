@@ -1,0 +1,14 @@
+{
+    "name": "test/keizibanlib",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kumongoodlife",
+            "email": "kumongoodlife@gmail.com"
+        }
+    ],
+    "require": {
+        "4kizuki/php-actg": "@beta"
+    }
+}
