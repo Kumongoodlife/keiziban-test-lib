@@ -10,5 +10,10 @@
     ],
     "require": {
         "4kizuki/php-actg": "@beta"
+    },
+    "autoload": {
+      "psr-4": {
+        "test\\keizibanlib\\": "src/"
+      }
     }
 }
