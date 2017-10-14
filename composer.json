@@ -1,5 +1,5 @@
 {
-    "name": "test/keizibanlib",
+    "name": "kumongoodlife/keizibanlib",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -13,7 +13,7 @@
     },
     "autoload": {
       "psr-4": {
-        "kumongoodlife\\keizibanlib\\": "src/"
+        "Kumon\\Keiziban-Lib\\": "src/"
       }
     }
 }
