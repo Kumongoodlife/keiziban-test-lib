@@ -13,7 +13,7 @@
     },
     "autoload": {
       "psr-4": {
-        "Kumon\\Keiziban-Lib\\": "src/"
+        "Kumon\\KeizibanLib\\": "src/"
       }
     }
 }
