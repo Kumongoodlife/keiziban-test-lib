@@ -1,4 +1,6 @@
 <?php
+namespace Kumon\KeizibanLib;
+
 use Akizuki\ACTG\CSRFToken;
 
   class Loginpageprint {
