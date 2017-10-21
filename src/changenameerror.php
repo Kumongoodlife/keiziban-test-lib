@@ -34,7 +34,7 @@ use \Exception;
       if ($result) {
         session_regenerate_id(TRUE);
         $_SESSION['name'] = $newname;//セッション情報を更新
-        print "<p>表示名をを変更しました。</p>";
+        print "<p>表示名を変更しました。</p>";
         print "<p>新しい表示名:".Encode::e($newname)."</p>";
         print "<a href = \"mainpage.php\">戻る<a>";
       } else {
