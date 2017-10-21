@@ -1,6 +1,8 @@
 <?php
 namespace Kumon\KeizibanLib;
 
+use Kumon\KeizibanLib\Encode;
+
 use \PDO;
 use \Exception;
 
@@ -45,7 +47,7 @@ use \Exception;
     }
 
     public function printform($userid, $name, $id, $hiddenform) {
-      print "<p><div class = \"username\">".e($name)."(ユーザーid: ".e($userid).")としてログインしています。</div></p>
+      print "<p><div class = \"username\">".Encode::e($name)."(ユーザーid: ".Encode::e($userid).")としてログインしています。</div></p>
             <a href=\"mainpage.php\">戻る</a><br>
             <h2>書き込みする</h2>
             <form enctype = \"multipart/form-data\" method = \"post\" action = \"post.php\">
@@ -66,8 +68,8 @@ use \Exception;
       $count = 0;
       while ($col = $result->fetch(\PDO::FETCH_ASSOC)) {
         $count++;
-        print "<p><div class = \"username\">[No.{$count}] 投稿者:".e($col['postuser'])."(".date("Y年n月j日 H時i分s秒", $col['posttime']).")</div></p>";
-        print e($col['news']);
+        print "<p><div class = \"username\">[No.{$count}] 投稿者:".Encode::e($col['postuser'])."(".date("Y年n月j日 H時i分s秒", $col['posttime']).")</div></p>";
+        print Encode::e($col['news']);
         if ($col['file']) {
           print "<br><a href=\"{$col['file']}\">添付ファイル</a>";
         }

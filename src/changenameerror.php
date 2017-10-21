@@ -1,6 +1,8 @@
 <?php
 namespace Kumon\KeizibanLib;
 
+use Kumon\KeizibanLib\Encode;
+
 use \PDO;
 use \Exception;
 
@@ -33,7 +35,7 @@ use \Exception;
         session_regenerate_id(TRUE);
         $_SESSION['name'] = $newname;//セッション情報を更新
         print "<p>表示名をを変更しました。</p>";
-        print "<p>新しい表示名:".e($newname)."</p>";
+        print "<p>新しい表示名:".Encode::e($newname)."</p>";
         print "<a href = \"mainpage.php\">戻る<a>";
       } else {
         throw new ChangenameException("不明なエラーにより失敗しました。戻ってやり直してください");

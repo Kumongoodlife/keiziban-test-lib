@@ -1,6 +1,8 @@
 <?php
 namespace Kumon\KeizibanLib;
 
+use Kumon\KeizibanLib\Encode;
+
 use \Exception;
 use \PDO;
 
@@ -32,7 +34,7 @@ class MakeNewpageException extends Exception {}
 
       if ($result1 && $result3) {
         print "<p>スレッドを作成しました。戻ってスレッドに移動してください。</p>";
-        print "<p>新規スレッド名:".e($newpagename)."</p>";
+        print "<p>新規スレッド名:".Encode::e($newpagename)."</p>";
         print "<a href = \"mainpage.php\">戻る</a>";
       } else {
         // 失敗したなら、後処理。ディレクトリ削除やDB。

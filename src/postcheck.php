@@ -1,6 +1,8 @@
 <?php
 namespace Kumon\KeizibanLib;
 
+use Kumon\KeizibanLib\Encode;
+
 use \PDO;
 use \Exception;
 
@@ -47,7 +49,7 @@ use \Exception;
           $this->fileflag = 0;
           if (move_uploaded_file($tmpname, $this->uploadfile)) {
             print "<p>ファイルがアップロードできました。<br>";
-            print "ファイル名: ".e($originalname)."</p>";
+            print "ファイル名: ".Encode::e($originalname)."</p>";
             $stt = $db->prepare("INSERT INTO files(filename, pageid) VALUES (:filename, :pageid)");
             $stt->bindValue(":filename", $filename);
             $stt->bindValue(":pageid", $this->pageid);
@@ -90,7 +92,7 @@ use \Exception;
 
       if ($result) {
         print "<p>投稿できました。</p>";
-        print "<p>投稿内容:".e($this->free)."</p>";
+        print "<p>投稿内容:".Encode::e($this->free)."</p>";
         print "<a href = \"pageview.php?pageid=$this->pageid\">戻る</a>";
       }
     }

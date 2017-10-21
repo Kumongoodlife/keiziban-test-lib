@@ -1,6 +1,8 @@
 <?php
 namespace Kumon\KeizibanLib;
 
+use Kumon\KeizibanLib\Encode;
+
 use \Exception;
 use \PDO;
 
@@ -34,8 +36,8 @@ class RegisterException extends Exception {}
       $result = $stt->execute();
       if ($result) {
         print "登録に成功しました。戻ってログインしてください。<br>";
-        print "<p>登録ユーザーid:".e($newid)."</p>";
-        print "<p>登録表示名:".e($newname)."</p>";
+        print "<p>登録ユーザーid:".Encode::e($newid)."</p>";
+        print "<p>登録表示名:".Encode::e($newname)."</p>";
         print "<a href = \"loginpage.php\">戻る</a>";
       } else {
         throw new RegisterException('不明なエラーにより失敗しました。戻ってやり直してください。');
