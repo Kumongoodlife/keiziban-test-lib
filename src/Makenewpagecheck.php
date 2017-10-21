@@ -3,24 +3,32 @@ namespace Kumon\KeizibanLib;
 
 use Kumon\KeizibanLib\Encode;
 
-use \Exception;
+//use \Exception;
+use \LogicException;
+use \RuntimeException;
 use \PDO;
 
-class MakeNewpageException extends Exception {}
+//class MakeNewpageException extends Exception {}
+
+class MakeThreadPreconditionNotSatisfiedException extends LogicException { }
+class ThreadNameNotGivenException extends MakeThreadPreconditionNotSatisfiedException { }
+class ThreadNameDuplicationException extends MakeThreadPreconditionNotSatisfiedException { }
+
+class MakeThreadRuntimeException extends RuntimeException { }
 
 
   class Makenewpagecheck {
     public static function checkerror($newpagename, $db) {
       //入力内容を確認
       if (empty($newpagename)) {  // $_POST['..']
-        throw new MakeNewpageException('新規スレッド名を入力してください！戻ってやり直してください！');
+        throw new ThreadNameNotGivenException('新規スレッド名を入力してください！戻ってやり直してください！');
       }
 
       //重複がないか確認
       $query = "SELECT pagename FROM pages WHERE pagename = \"$newpagename\"";
       $result = $db->query($query);
       if (!empty($col = $result->fetch(PDO::FETCH_ASSOC))) {
-        throw new MakeNewpageException('この名前のスレッドはすでに存在しています！戻ってやり直してください！');
+        throw new ThreadNameDuplicationException('この名前のスレッドはすでに存在しています！戻ってやり直してください！');
       }
     }
 
@@ -38,7 +46,7 @@ class MakeNewpageException extends Exception {}
         print "<a href = \"mainpage.php\">戻る</a>";
       } else {
         // 失敗したなら、後処理。ディレクトリ削除やDB。
-        throw new MakeNewpageException('不明なエラーにより失敗しました！戻ってやり直してください！');
+        throw new MakeThreadRuntimeException('不明なエラーにより失敗しました！戻ってやり直してください！');
         if (!is_dir($dirpath1)) {
           mkdir($dirpath1);
         }
