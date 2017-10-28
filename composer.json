@@ -15,6 +15,5 @@
       "psr-4": {
         "Kumon\\KeizibanLib\\": "src/"
       }
-    },
-    "license": "MIT"
+    }
 }
