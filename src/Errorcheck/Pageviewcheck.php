@@ -2,7 +2,7 @@
 namespace Kumon\KeizibanLib\Errorcheck;
 
 
-use Kumon\KeizibanLib\Encode;
+use Kumon\KeizibanLib\System\Encode;
 
 use \PDO;
 use \Exception;
