@@ -1,5 +1,5 @@
 <?php
-namespace Kumon\KeizibanLib;
+namespace Kumon\KeizibanLib\System;
 
 
   class DbManager {

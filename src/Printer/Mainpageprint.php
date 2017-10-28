@@ -1,5 +1,5 @@
 <?php
-namespace Kumon\KeizibanLib;
+namespace Kumon\KeizibanLib\Printer;
 
 
 use \PDO;
