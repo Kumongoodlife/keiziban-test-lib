@@ -1,7 +1,6 @@
 <?php
 namespace Kumon\KeizibanLib;
 
-
 use Kumon\KeizibanLib\Encode;
 
 use \PDO;
