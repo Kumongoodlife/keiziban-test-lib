@@ -1,6 +1,7 @@
 <?php
 namespace Kumon\KeizibanLib;
 
+
   class Newsesid {
     //だいたい10%でセッションidを再発行する
       public static function newsesid() {

@@ -1,6 +1,7 @@
 <?php
 namespace Kumon\KeizibanLib;
 
+
   class charset_const {
     public const charset = 'UTF-8';
   }

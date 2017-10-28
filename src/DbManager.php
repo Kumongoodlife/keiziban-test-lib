@@ -1,6 +1,7 @@
 <?php
 namespace Kumon\KeizibanLib;
 
+
   class DbManager {
     //ログインシステム用のデータベースに接続する
     public static function getDb() {
