@@ -8,7 +8,7 @@ class CreateTablesforTestException extends Exception {}
   class DbManager {
     //ログインシステム用のデータベースに接続する
     public static function getDb() {
-      $dsn  = 'mysql:host = localhost; charset = utf8';
+      $dsn  = 'mysql:host = dockerlampglus_mysql_1; charset = utf8';
       $user = 'dbuser';
       $pass = 'secret';
 
@@ -28,7 +28,7 @@ class CreateTablesforTestException extends Exception {}
 
     public static function getDbforTest() {
 
-      $dsn  = 'mysql:host = 172.18.0.1; charset = utf8';
+      $dsn  = 'mysql:host = dockerlampglus_mysql_1; charset = utf8';
       $user = 'keiziban_test_user';
       $pass = 'secret';
 
