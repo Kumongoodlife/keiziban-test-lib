@@ -1,5 +1,5 @@
 <?php
-namespace Kumon\KeizibanLib\Errorcheck;
+namespace Kumon\KeizibanLib;
 
 use PHPUnit\Framework\TestCase;
 
