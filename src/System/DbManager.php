@@ -70,6 +70,16 @@ class CreateTablesforTestException extends Exception {}
         throw new CreateTablesforTestException("テーブルの作成に失敗しました！");
       }
 
+      $stt = $db->prepare("INSERT INTO member(userid, name, pass) VALUES(:userid, :name, :pass)");
+      $stt->bindValue(":userid", "test");
+      $stt->bindValue(":name", "テストユーザー");
+      $stt->bindValue(":pass", password_hash("secret", PASSWORD_DEFAULT));
+      $result = $stt->execute();
+
+      $stt = $db->prepare("INSERT INTO pages(pagename) VALUES (:pagename)");
+      $stt->bindValue(":pagename", "テストスレッド");
+      $result = $stt->execute();
+
       print "Success!";
     }
   }
