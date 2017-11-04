@@ -64,7 +64,7 @@ class CreateTablesforTestException extends Exception {}
         throw new CreateTablesforTestException("テーブルの作成に失敗しました！");
       }
 
-      $query = "CREATE TABLE files(fileid auto_increment primary key, filename text, pageid int)";
+      $query = "CREATE TABLE files(fileid int auto_increment primary key, filename text, pageid int)";
       $result = $db->exec($query);
       if(!$tableresult = $db->query("SHOW TABLES LIKE \"files\"")->fetch(\PDO::FETCH_ASSOC)) {
         throw new CreateTablesforTestException("テーブルの作成に失敗しました！");
