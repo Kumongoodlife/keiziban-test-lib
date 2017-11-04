@@ -69,6 +69,8 @@ class CreateTablesforTestException extends Exception {}
       if(!$result) {
         throw new CreateTablesforTestException("テーブルの作成に失敗しました！");
       }
+
+      print "Success!";
     }
   }
 
