@@ -2,22 +2,27 @@
 namespace Kumon\KeizibanLib\System;
 
 use \Exception;
+use \PDO;
+use \PDOException;
+
+//イニシャライズ用のクラスを使う
+use htdocs\keiziban3\ini\Ini;
 
 class CreateTablesforTestException extends Exception {}
 
   class DbManager {
     //ログインシステム用のデータベースに接続する
     public static function getDb() {
-      $dsn  = 'mysql:host = dockerlampglus_mysql_1; charset = utf8';
-      $user = 'dbuser';
-      $pass = 'secret';
+      $dsn  = 'mysql:host=dockerlampglus_mysql_1;charset=utf8mb4;dbname='. Ini::dbname;
+      $user = Ini::user;
+      $pass = Ini::pass;
 
       //データベースへの接続を確立
       try {
-        $db = new \PDO($dsn, $user, $pass);
+        $db = new PDO($dsn, $user, $pass);
         //データベースに接続
-        $query = "USE keiziban";
-        $result = $db->exec($query);
+        //$query = "USE keiziban";
+        //$result = $db->exec($query);
 
         return $db;
       } catch(PDOException $e) {
@@ -28,15 +33,15 @@ class CreateTablesforTestException extends Exception {}
 
     public static function getDbforTest() {
 
-      $dsn  = 'mysql:host = dockerlampglus_mysql_1; charset = utf8';
-      $user = 'keiziban_test_user';
-      $pass = 'secret';
+      $dsn  = 'mysql:host = dockerlampglus_mysql_1; charset = utf8;dbname=' . Ini::testdbname;
+      $user = Ini::testuser;
+      $pass = Ini::testpass;
 
       try {
-        $db = new \PDO($dsn, $user, $pass);
+        $db = new PDO($dsn, $user, $pass);
         //データベースに接続
-        $query = "USE keiziban_test";
-        $result = $db->exec($query);
+        //$query = "USE keiziban_test";
+        //$result = $db->exec($query);
 
         return $db;
       } catch(PDOException $e) {
