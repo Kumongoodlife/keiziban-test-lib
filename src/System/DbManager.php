@@ -6,6 +6,7 @@ use \PDO;
 use \PDOException;
 
 //イニシャライズ用のクラスを使う
+require_once "./System/Utility/ini.php";
 use htdocs\keiziban3\ini\Ini;
 
 class CreateTablesforTestException extends Exception {}
