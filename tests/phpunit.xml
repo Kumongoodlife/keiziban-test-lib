@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+  <phpunit>
+    <php>
+      <var name="DB_DSN" value="mysql:dbname=keiziban_test;host=dockerlampglus_mysql_1" />
+      <var name="DB_USER" value="db_user" />
+      <var name="DB_PASSWORD" value="pass" />
+      <var name="DB_DBNAME" value="keiziban_test" />
+  </php>
+</phpunit>

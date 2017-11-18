@@ -1,7 +1,11 @@
 <?php
 namespace Kumon\KeizibanLib;
 
+require_once "./vendor/autoload.php";
+require_once "../CommonDatabaseTest.php";
+
 use PHPUnit\Framework\TestCase;
+use PHPUnit\DbUnit\TestCaseTrait;
 
 use Kumon\KeizibanLib\System\Encode;
 use Kumon\KeizibanLib\System\DbManager;
@@ -17,6 +21,7 @@ class ChangenameErrorTest extends Testcase {
   }
   */
 
+  use TestCaseTrait;
   /**
    * @test
    */
@@ -39,6 +44,10 @@ class ChangenameErrorTest extends Testcase {
   /**
   * @test
   */
+  public function ChangenameExceptionTest() {
+    $newname = "1234567890123456";
+
+  }
 
 
 
