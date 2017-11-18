@@ -33,20 +33,22 @@ class CreateTablesforTestException extends Exception {}
     }
 
     public static function getDbforTest() {
-
-      $dsn  = 'mysql:host = dockerlampglus_mysql_1; charset = utf8;dbname=' . Ini::testdbname;
+      $dsn  = 'mysql:host=dockerlampglus_mysql_1;charset=utf8mb4;dbname='. Ini::testdbname;
       $user = Ini::testuser;
       $pass = Ini::testpass;
 
+      //データベースへの接続を確立
       try {
         $db = new PDO($dsn, $user, $pass);
         //データベースに接続
-        //$query = "USE keiziban_test";
+        //$query = "USE keiziban";
         //$result = $db->exec($query);
 
         return $db;
       } catch(PDOException $e) {
         print "データベース接続確立エラー: {$e->getMessage()}<br>";
+        print "ユーザー名: " . $user . "<br>";
+        print "パスワード: " . $pass . "<br>";
         exit;
       }
     }

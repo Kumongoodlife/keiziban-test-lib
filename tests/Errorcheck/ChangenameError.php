@@ -36,6 +36,10 @@ class ChangenameErrorTest extends Testcase {
     }
   }
 
+  /**
+  * @test
+  */
+
 
 
 }
